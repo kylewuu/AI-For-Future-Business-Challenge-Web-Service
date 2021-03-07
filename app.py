@@ -1,15 +1,15 @@
 from flask import Flask, json
 from flask_cors import CORS, cross_origin
 
-companies = [{"id": 1, "name": "Company One"},
-             {"id": 2, "name": "Company Two"}]
+companies = [{"id": 1, "health": "20%"},
+             {"id": 2, "health": "70%"}]
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route('/companies', methods=['GET'])
+@app.route('/health', methods=['GET'])
 @cross_origin()
 def get_companies():
     return json.dumps(companies)
