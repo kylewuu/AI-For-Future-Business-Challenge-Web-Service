@@ -1,6 +1,7 @@
 env/
 __pycache__/
 .vscode/
-resources/images
-resources/apple_dataset
-apple_dataset
+resources/images/*
+resources/apple_dataset/*
+!resources/apple_dataset/models
+apple_dataset/*
