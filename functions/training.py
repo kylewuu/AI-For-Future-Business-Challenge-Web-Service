@@ -15,6 +15,3 @@ if tf.config.list_physical_devices('GPU'):
     tf.config.experimental.set_virtual_device_configuration(physical_devices[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=4000)])
 
 image_detection()
-
-
-
