@@ -1,2 +1,2 @@
-sudo apt-get update
-sudo apt-get install -y libgl1-mesa-dev
+apt-get update
+apt-get install -y libgl1-mesa-dev
