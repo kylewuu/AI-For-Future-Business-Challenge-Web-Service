@@ -4,9 +4,10 @@ from functions.API.get_statuses import *
 from functions.API.post_apples import *
 from functions.initializations import *
 import json
-# import os
+import os
 
-# os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
