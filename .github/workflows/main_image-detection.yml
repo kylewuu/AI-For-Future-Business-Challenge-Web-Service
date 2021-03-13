@@ -7,31 +7,28 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    branches:
-      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@main
+    - uses: actions/checkout@master
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.6"
+    - name: Set up Python version
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.6'
 
-      - name: Build using AppService-Build
-        uses: azure/appservice-build@v2
-        with:
-          platform: python
-          platform-version: "3.6"
+    - name: Build using AppService-Build
+      uses: azure/appservice-build@v2
+      with:
+        platform: python
+        platform-version: '3.6'
 
-      - name: "Deploy to Azure Web App"
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: "image-detection"
-          slot-name: "production"
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_7fd55be40a4442f7bb8649158c47b5fc }}
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'image-detection'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_098dcb9786924d799c03b33df0af9368 }}
