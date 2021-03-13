@@ -4,7 +4,9 @@ from functions.API.get_statuses import *
 from functions.API.post_apples import *
 from functions.initializations import *
 import json
+import os
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
