@@ -14,22 +14,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+    - uses: actions/checkout@master
 
-      - name: Set up Python version
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.6"
+    - name: Set up Python version
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
 
-      - name: Build using AppService-Build
-        uses: azure/appservice-build@v2
-        with:
-          platform: python
-          platform-version: "3.6"
+    - name: Build using AppService-Build
+      uses: azure/appservice-build@v2
+      with:
+        platform: python
+        platform-version: '3.7'
 
-      - name: "Deploy to Azure Web App"
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: "image-detection"
-          slot-name: "production"
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_098dcb9786924d799c03b33df0af9368 }}
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'image-detection'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d53205d7f27549c7aca4621070c4574a }}
