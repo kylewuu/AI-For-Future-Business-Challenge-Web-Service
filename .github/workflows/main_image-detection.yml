@@ -7,9 +7,7 @@ on:
   push:
     branches:
       - main
-  workflow_trigger:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
