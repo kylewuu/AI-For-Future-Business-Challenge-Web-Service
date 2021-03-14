@@ -39,6 +39,7 @@ detector = init()
 def get_statuses():
     return json.dumps(get_statuses_all())
 
+
 @app.route('/status', methods=['POST'])
 @cross_origin()
 def post_apples():
@@ -46,10 +47,13 @@ def post_apples():
     string_data = process_apples(detector, str(img_string))
     json_data = json.dumps(string_data)
 
-    with open('resources\\temp_db\\data.json', 'w', encoding='utf-8') as f:
+    # docker change
+    # with open('resources\\temp_db\\data.json', 'w', encoding='utf-8') as f:
+    with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(string_data, f, ensure_ascii=False, indent=4)
 
     return json_data
+
 
 if __name__ == '__main__':
     app.run()

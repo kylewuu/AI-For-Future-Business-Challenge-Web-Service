@@ -1,14 +1,18 @@
 import base64
 from classes.Apples import *
 
+
 def process_apples(detector, img_string):
 
     imgdata = base64.b64decode(img_string)
-    filename = 'resources\\temp_db\\temp_image.jpg'
+    # docker change
+    # filename = 'resources\\temp_db\\temp_image.jpg'
+    filename = 'temp_image.jpg'
     with open(filename, 'wb') as f:
         f.write(imgdata)
 
-    detections = detector.detectObjectsFromImage(input_image= filename, minimum_percentage_probability=65, output_image_path="resources\\images\\output\\test3-custom.jpg")
+    detections = detector.detectObjectsFromImage(
+        input_image=filename, minimum_percentage_probability=65, output_image_path="resources\\images\\output\\test3-custom.jpg")
 
     damaged_apples_count = 0
     undamaged_apples_count = 0
@@ -28,4 +32,3 @@ def process_apples(detector, img_string):
     apples = Apples(total_apples_count, damaged_apples_count)
 
     return {"total_apples_count": apples.total_apples_count, "damaged_apples_count": apples.damaged_apples_count}
-    
