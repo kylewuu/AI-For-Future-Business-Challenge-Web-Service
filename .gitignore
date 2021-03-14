@@ -4,4 +4,6 @@ __pycache__/
 resources/images/*
 resources/apple_dataset/*
 !resources/apple_dataset/models
+!resources/apple_dataset/json
 apple_dataset/*
+Dockerfile
